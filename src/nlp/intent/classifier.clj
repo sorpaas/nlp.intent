@@ -17,16 +17,19 @@
 (defn sync
   "Sync classifier."
   [classifier]
-  (assoc! classifier :model (DocumentCategorizerME/train "en"
-                                                         (new CollectionObjectStream
-                                                              (:dataset classifier))
-                                                         (new TrainingParameters)
-                                                         (new DoccatFactory))))
+  (if (> (count (:dataset classifier)) 5)
+    (assoc! classifier :model (DocumentCategorizerME/train "en"
+                                                           (new CollectionObjectStream
+                                                                (:dataset classifier))
+                                                           (new TrainingParameters)
+                                                           (new DoccatFactory)))))
 
 (defn classify
   "Classify a sentence."
   [classifier sentence]
-  (let [categorizer (new DocumentCategorizerME (:model classifier))
-        categorized (.sortedScoreMap categorizer sentence)]
-    (println (str categorized))
-    (first (.toArray (.get categorized (.lastKey categorized))))))
+  (if (:model classifier)
+    (let [categorizer (new DocumentCategorizerME (:model classifier))
+          categorized (.sortedScoreMap categorizer sentence)]
+      (println (str categorized))
+      (if (> (.lastKey categorized) 0.5)
+        (first (.toArray (.get categorized (.lastKey categorized))))))))
