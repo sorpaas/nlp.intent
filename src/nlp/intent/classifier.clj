@@ -30,6 +30,5 @@
   (if (:model classifier)
     (let [categorizer (new DocumentCategorizerME (:model classifier))
           categorized (.sortedScoreMap categorizer sentence)]
-      (println (str categorized))
       (if (> (.lastKey categorized) 0.5)
-        (first (.toArray (.get categorized (.lastKey categorized))))))))
+        (keyword (first (.toArray (.get categorized (.lastKey categorized)))))))))
