@@ -15,13 +15,13 @@ but all are subject to change. [Submit an issue](https://source.id.hn/maniphest/
 
 In **Leiningen** or **Boot**, add **nlp.intent** as a dependency:
 
-```clojure
+```
 [nlp.intent "0.0.1-SNAPSHOT"]
 ```
 
 The thing for classifying intent and slots is called "rater". Create a rater:
 
-```clojure
+```
 (require '[nlp.intent :as intent])
 (def my-rater (intent/new-rater))
 ```
@@ -32,14 +32,14 @@ is a name, and the rest of its elements are slot types. According to
 the hood), supported types are `:money`, `:time`, `:date`, `:percent`,
 `:number`, `:ordinal`, `:duration`, `:person`, `:organization`, and `:location`.
 
-```clojure
+```
 (intent/add-type my-rater [:schedule-meeting :duration])
 ```
 
 Then we can train the rater. Note that you need at least 6 samples to make the
 rater return any result.
 
-```clojure
+```
 (intent/train my-rater :schedule-meeting "Can you schedule a 30 minute slot for us tomorrow?")
 (intent/train my-rater :schedule-meeting "Please help schedule a 45 minute time for us on Wednesday.")
 (intent/train my-rater :schedule-meeting "Can you help schedule a 1 hour slot for us the
@@ -53,7 +53,7 @@ rater return any result.
 After training, you must `sync` to update the internal classifier. You can
 `train` and `sync` a rater multiple times.
 
-```clojure
+```
 (intent/sync my-rater)
 ```
 
@@ -63,7 +63,7 @@ of elements are slot instances (strings) which order is the same as when you
 define the type using `add-type`. If a slot is not found in a sentence, that
 place will be set to `nil`.
 
-```clojure
+```
 (intent/rate my-rater "Could you help schedule a 30 minutes slot for us on Thursday?")
 ; => [:schedule-meeting "30 minutes"]
 ```
