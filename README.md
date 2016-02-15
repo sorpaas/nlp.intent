@@ -100,6 +100,11 @@ For patches, use
 [arc diff](https://secure.phabricator.com/book/phabricator/article/arcanist_diff/)
 to submit revisions.
 
+## Similar Projects
+
+- [nlp-intent-toolkit](https://github.com/mlehman/nlp-intent-toolkit): An intent
+  recognition toolkit in Java.
+
 ## License
 
 Copyright © 2016 Wei Tang
