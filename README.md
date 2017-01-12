@@ -1,6 +1,6 @@
 # nlp.intent
 
-**nlp.intent** ([Project Page](https://source.id.hn/diffusion/NLPI/),
+**nlp.intent** ([Project Page](https://source.that.world/diffusion/NLPI/),
 [Github Mirror](https://github.com/sorpaas/nlp.intent)) is an open source
 [wit.ai](https://wit.ai) alternative for natural language processing. It can be
 used to recognize **intent** and **slots**. For example, in a meeting schedule
@@ -9,7 +9,7 @@ regarded as a sentence with intent **schedule meeting**, a duration slot **30
 minute** and a time slot **tomorrow**.
 
 The project is written in Clojure. It is in its very early stage. Things work,
-but all are subject to change. [Submit an issue](https://source.id.hn/maniphest/task/edit/form/default/?projects=nlp.intent).
+but all are subject to change. [Submit an issue](https://source.that.world/maniphest/task/edit/form/default/?projects=nlp.intent).
 
 ## Usage
 
@@ -87,15 +87,15 @@ only `[:schedule-meeting :duration :date :time]` would work, but not
 ## Examples
 
 A
-[slackbot example](https://source.id.hn/diffusion/NLPI/browse/master/examples/slackbot.clj)
+[slackbot example](https://source.that.world/diffusion/NLPI/browse/master/examples/slackbot.clj)
 can be found in the `examples` folder.
 
 ## Contribution
 
 The project is managed in a
-[Phabricator instance](https://source.id.hn/diffusion/NLPI/). For issues, submit
+[Phabricator instance](https://source.that.world/diffusion/NLPI/). For issues, submit
 one
-[here](https://source.id.hn/maniphest/task/edit/form/default/?projects=nlp.intent).
+[here](https://source.that.world/maniphest/task/edit/form/default/?projects=nlp.intent).
 For patches, use
 [arc diff](https://secure.phabricator.com/book/phabricator/article/arcanist_diff/)
 to submit revisions.
